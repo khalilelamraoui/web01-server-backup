@@ -1,0 +1,782 @@
+--- !ruby/object:Puppet::Transaction::Report
+host: 520022-web-01.ec2.internal
+time: '2024-04-04T22:24:30.866133558+00:00'
+configuration_version: 1712269470
+transaction_uuid: 820923ce-3f81-480b-a074-3311f03a1d43
+report_format: 10
+puppet_version: 5.5.10
+status: failed
+transaction_completed: true
+noop: false
+noop_pending: false
+environment: production
+logs:
+- level: notice
+  message: content changed '{md5}6d097e1cbb148dddeab2938fcf89792f' to '{md5}d571892ef89ac3408e86bfc05592a2fa'
+  source: "/Stage[main]/Main/File[/data/web_static/releases/test/index.html]/content"
+  tags:
+  - notice
+  - file
+  - class
+  time: '2024-04-04T22:24:30.904886281+00:00'
+  file: "/home/ubuntu/setup_web_static.pp"
+  line: 52
+- level: notice
+  message: target changed '/data/web_static/releases/web_static_20240404151900/' to
+    '/data/web_static/releases/test'
+  source: "/Stage[main]/Main/File[/data/web_static/current]/target"
+  tags:
+  - notice
+  - file
+  - class
+  time: '2024-04-04T22:24:30.906508610+00:00'
+  file: "/home/ubuntu/setup_web_static.pp"
+  line: 57
+- level: notice
+  message: executed successfully
+  source: "/Stage[main]/Main/Exec[chown -R ubuntu:ubuntu /data/]/returns"
+  tags:
+  - notice
+  - exec
+  - class
+  time: '2024-04-04T22:24:30.943388462+00:00'
+  file: "/home/ubuntu/setup_web_static.pp"
+  line: 62
+- level: err
+  message: Permission denied @ dir_s_mkdir - /var/www/html/index.html20240404-26390-hjpw1v.lock
+  source: Puppet
+  tags:
+  - err
+  time: '2024-04-04T22:24:30.952033536+00:00'
+  file: 
+  line: 
+- level: err
+  message: 'change from ''{md5}8ddd8be4b179a529afa5f2ffae4b9858'' to ''{md5}49c87d27c65726ff3569adad7d606605''
+    failed: Permission denied @ dir_s_mkdir - /var/www/html/index.html20240404-26390-hjpw1v.lock'
+  source: "/Stage[main]/Main/File[/var/www/html/index.html]/content"
+  tags:
+  - err
+  - file
+  - class
+  time: '2024-04-04T22:24:30.953014897+00:00'
+  file: "/home/ubuntu/setup_web_static.pp"
+  line: 74
+- level: notice
+  message: 'Dependency File[/var/www/html/index.html] has failures: true'
+  source: "/Stage[main]/Main/File[/var/www/html/404.html]"
+  tags:
+  - notice
+  - file
+  - class
+  time: '2024-04-04T22:24:30.953396297+00:00'
+  file: "/home/ubuntu/setup_web_static.pp"
+  line: 79
+- level: warning
+  message: Skipping because of failed dependencies
+  source: "/Stage[main]/Main/File[/var/www/html/404.html]"
+  tags:
+  - warning
+  - file
+  - class
+  time: '2024-04-04T22:24:30.953527857+00:00'
+  file: "/home/ubuntu/setup_web_static.pp"
+  line: 79
+- level: warning
+  message: Skipping because of failed dependencies
+  source: "/Stage[main]/Main/File[/etc/nginx/sites-available/default]"
+  tags:
+  - warning
+  - file
+  - class
+  time: '2024-04-04T22:24:30.953815684+00:00'
+  file: "/home/ubuntu/setup_web_static.pp"
+  line: 84
+- level: warning
+  message: Skipping because of failed dependencies
+  source: "/Stage[main]/Main/Exec[nginx restart]"
+  tags:
+  - warning
+  - exec
+  - class
+  time: '2024-04-04T22:24:30.954031198+00:00'
+  file: "/home/ubuntu/setup_web_static.pp"
+  line: 89
+- level: notice
+  message: Applied catalog in 0.09 seconds
+  source: Puppet
+  tags:
+  - notice
+  time: '2024-04-04T22:24:30.960407876+00:00'
+  file: 
+  line: 
+metrics:
+  resources:
+    name: resources
+    label: Resources
+    values:
+    - - total
+      - Total
+      - 22
+    - - skipped
+      - Skipped
+      - 3
+    - - failed
+      - Failed
+      - 1
+    - - failed_to_restart
+      - Failed to restart
+      - 0
+    - - restarted
+      - Restarted
+      - 0
+    - - changed
+      - Changed
+      - 3
+    - - out_of_sync
+      - Out of sync
+      - 4
+    - - scheduled
+      - Scheduled
+      - 0
+    - - corrective_change
+      - Corrective change
+      - 0
+  time:
+    name: time
+    label: Time
+    values:
+    - - package
+      - Package
+      - 0.000165371
+    - - file
+      - File
+      - 0.029044989
+    - - exec
+      - Exec
+      - 0.036800717
+    - - schedule
+      - Schedule
+      - 0.000426366
+    - - filebucket
+      - Filebucket
+      - 6.7225e-05
+    - - config_retrieval
+      - Config retrieval
+      - 0.19276028
+    - - transaction_evaluation
+      - Transaction evaluation
+      - 0.08896466391161084
+    - - catalog_application
+      - Catalog application
+      - 0.09398545196745545
+    - - total
+      - Total
+      - 0.094315047
+  changes:
+    name: changes
+    label: Changes
+    values:
+    - - total
+      - Total
+      - 3
+  events:
+    name: events
+    label: Events
+    values:
+    - - total
+      - Total
+      - 4
+    - - failure
+      - Failure
+      - 1
+    - - success
+      - Success
+      - 3
+resource_statuses:
+  Package[nginx]:
+    title: nginx
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 27
+    resource: Package[nginx]
+    resource_type: Package
+    provider_used: apt
+    containment_path:
+    - Stage[main]
+    - Main
+    - Package[nginx]
+    evaluation_time: 0.000165371
+    tags:
+    - package
+    - nginx
+    - class
+    time: '2024-04-04T22:24:30.885545040+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  File[/data]:
+    title: "/data"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 32
+    resource: File[/data]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/data]
+    evaluation_time: 0.000128939
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.885850352+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  File[/data/web_static]:
+    title: "/data/web_static"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 36
+    resource: File[/data/web_static]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/data/web_static]
+    evaluation_time: 0.00010505
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.886089849+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  File[/data/web_static/releases]:
+    title: "/data/web_static/releases"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 40
+    resource: File[/data/web_static/releases]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/data/web_static/releases]
+    evaluation_time: 0.000106884
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.886310762+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  File[/data/web_static/releases/test]:
+    title: "/data/web_static/releases/test"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 44
+    resource: File[/data/web_static/releases/test]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/data/web_static/releases/test]
+    evaluation_time: 0.000100537
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.886525765+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  File[/data/web_static/shared]:
+    title: "/data/web_static/shared"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 48
+    resource: File[/data/web_static/shared]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/data/web_static/shared]
+    evaluation_time: 9.8425e-05
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.886746071+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  File[/data/web_static/releases/test/index.html]:
+    title: "/data/web_static/releases/test/index.html"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 52
+    resource: File[/data/web_static/releases/test/index.html]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/data/web_static/releases/test/index.html]
+    evaluation_time: 0.018076567
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.886957374+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: true
+    out_of_sync: true
+    skipped: false
+    change_count: 1
+    out_of_sync_count: 1
+    events:
+    - audited: false
+      property: content
+      previous_value: "{md5}6d097e1cbb148dddeab2938fcf89792f"
+      desired_value: "{md5}d571892ef89ac3408e86bfc05592a2fa"
+      historical_value: 
+      message: content changed '{md5}6d097e1cbb148dddeab2938fcf89792f' to '{md5}d571892ef89ac3408e86bfc05592a2fa'
+      name: content_changed
+      status: success
+      time: '2024-04-04T22:24:30.888224279+00:00'
+      redacted: 
+      corrective_change: false
+    corrective_change: false
+  File[/data/web_static/current]:
+    title: "/data/web_static/current"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 57
+    resource: File[/data/web_static/current]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/data/web_static/current]
+    evaluation_time: 0.001426329
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.905212928+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: true
+    out_of_sync: true
+    skipped: false
+    change_count: 1
+    out_of_sync_count: 1
+    events:
+    - audited: false
+      property: target
+      previous_value: "/data/web_static/releases/web_static_20240404151900/"
+      desired_value: "/data/web_static/releases/test"
+      historical_value: 
+      message: target changed '/data/web_static/releases/web_static_20240404151900/'
+        to '/data/web_static/releases/test'
+      name: target_changed
+      status: success
+      time: '2024-04-04T22:24:30.905412982+00:00'
+      redacted: 
+      corrective_change: false
+    corrective_change: false
+  Exec[chown -R ubuntu:ubuntu /data/]:
+    title: chown -R ubuntu:ubuntu /data/
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 62
+    resource: Exec[chown -R ubuntu:ubuntu /data/]
+    resource_type: Exec
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - Exec[chown -R ubuntu:ubuntu /data/]
+    evaluation_time: 0.036800717
+    tags:
+    - exec
+    - class
+    time: '2024-04-04T22:24:30.906801572+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: true
+    out_of_sync: true
+    skipped: false
+    change_count: 1
+    out_of_sync_count: 1
+    events:
+    - audited: false
+      property: returns
+      previous_value: notrun
+      desired_value:
+      - '0'
+      historical_value: 
+      message: executed successfully
+      name: executed_command
+      status: success
+      time: '2024-04-04T22:24:30.907007108+00:00'
+      redacted: 
+      corrective_change: false
+    corrective_change: false
+  File[/var/www]:
+    title: "/var/www"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 66
+    resource: File[/var/www]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/var/www]
+    evaluation_time: 0.000214576
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.943915347+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  File[/var/www/html]:
+    title: "/var/www/html"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 70
+    resource: File[/var/www/html]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/var/www/html]
+    evaluation_time: 0.000125817
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.944254549+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  File[/var/www/html/index.html]:
+    title: "/var/www/html/index.html"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 74
+    resource: File[/var/www/html/index.html]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/var/www/html/index.html]
+    evaluation_time: 0.008661865
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.944503975+00:00'
+    failed: true
+    failed_to_restart: false
+    changed: false
+    out_of_sync: true
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 1
+    events:
+    - audited: false
+      property: content
+      previous_value: "{md5}8ddd8be4b179a529afa5f2ffae4b9858"
+      desired_value: "{md5}49c87d27c65726ff3569adad7d606605"
+      historical_value: 
+      message: 'change from ''{md5}8ddd8be4b179a529afa5f2ffae4b9858'' to ''{md5}49c87d27c65726ff3569adad7d606605''
+        failed: Permission denied @ dir_s_mkdir - /var/www/html/index.html20240404-26390-hjpw1v.lock'
+      name: content_changed
+      status: failure
+      time: '2024-04-04T22:24:30.952245586+00:00'
+      redacted: 
+      corrective_change: false
+    corrective_change: false
+  File[/var/www/html/404.html]:
+    title: "/var/www/html/404.html"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 79
+    resource: File[/var/www/html/404.html]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/var/www/html/404.html]
+    evaluation_time: 
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.953311351+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: true
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  File[/etc/nginx/sites-available/default]:
+    title: "/etc/nginx/sites-available/default"
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 84
+    resource: File[/etc/nginx/sites-available/default]
+    resource_type: File
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - File[/etc/nginx/sites-available/default]
+    evaluation_time: 
+    tags:
+    - file
+    - class
+    time: '2024-04-04T22:24:30.953743121+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: true
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  Exec[nginx restart]:
+    title: nginx restart
+    file: "/home/ubuntu/setup_web_static.pp"
+    line: 89
+    resource: Exec[nginx restart]
+    resource_type: Exec
+    provider_used: posix
+    containment_path:
+    - Stage[main]
+    - Main
+    - Exec[nginx restart]
+    evaluation_time: 
+    tags:
+    - exec
+    - class
+    time: '2024-04-04T22:24:30.953974922+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: true
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  Schedule[puppet]:
+    title: puppet
+    file: 
+    line: 
+    resource: Schedule[puppet]
+    resource_type: Schedule
+    provider_used: 
+    containment_path:
+    - Schedule[puppet]
+    evaluation_time: 7.1033e-05
+    tags:
+    - schedule
+    - puppet
+    time: '2024-04-04T22:24:30.954397651+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  Schedule[hourly]:
+    title: hourly
+    file: 
+    line: 
+    resource: Schedule[hourly]
+    resource_type: Schedule
+    provider_used: 
+    containment_path:
+    - Schedule[hourly]
+    evaluation_time: 6.6677e-05
+    tags:
+    - schedule
+    - hourly
+    time: '2024-04-04T22:24:30.954536670+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  Schedule[daily]:
+    title: daily
+    file: 
+    line: 
+    resource: Schedule[daily]
+    resource_type: Schedule
+    provider_used: 
+    containment_path:
+    - Schedule[daily]
+    evaluation_time: 5.8535e-05
+    tags:
+    - schedule
+    - daily
+    time: '2024-04-04T22:24:30.954699219+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  Schedule[weekly]:
+    title: weekly
+    file: 
+    line: 
+    resource: Schedule[weekly]
+    resource_type: Schedule
+    provider_used: 
+    containment_path:
+    - Schedule[weekly]
+    evaluation_time: 4.2476e-05
+    tags:
+    - schedule
+    - weekly
+    time: '2024-04-04T22:24:30.954821254+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  Schedule[monthly]:
+    title: monthly
+    file: 
+    line: 
+    resource: Schedule[monthly]
+    resource_type: Schedule
+    provider_used: 
+    containment_path:
+    - Schedule[monthly]
+    evaluation_time: 0.000144314
+    tags:
+    - schedule
+    - monthly
+    time: '2024-04-04T22:24:30.954934081+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  Schedule[never]:
+    title: never
+    file: 
+    line: 
+    resource: Schedule[never]
+    resource_type: Schedule
+    provider_used: 
+    containment_path:
+    - Schedule[never]
+    evaluation_time: 4.3331e-05
+    tags:
+    - schedule
+    - never
+    time: '2024-04-04T22:24:30.955159249+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+  Filebucket[puppet]:
+    title: puppet
+    file: 
+    line: 
+    resource: Filebucket[puppet]
+    resource_type: Filebucket
+    provider_used: 
+    containment_path:
+    - Filebucket[puppet]
+    evaluation_time: 6.7225e-05
+    tags:
+    - filebucket
+    - puppet
+    time: '2024-04-04T22:24:30.955286625+00:00'
+    failed: false
+    failed_to_restart: false
+    changed: false
+    out_of_sync: false
+    skipped: false
+    change_count: 0
+    out_of_sync_count: 0
+    events: []
+    corrective_change: false
+corrective_change: false
+catalog_uuid: 4f7c3dd0-8c6b-415c-8ab9-822894e693e8
+cached_catalog_status: not_used

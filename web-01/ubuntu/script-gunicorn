@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Step 1: Identify the Gunicorn master process
+master_pid=$(pgrep -f 'gunicorn.*--workers')
+
+# Step 2: Send the master process a signal to gracefully reload workers
+if [[ -n $master_pid ]]; then
+    echo "Reloading Gunicorn gracefully..."
+    kill -HUP $master_pid
+    echo "Gunicorn reloaded."
+else
+    echo "Gunicorn master process not found."
+fi
